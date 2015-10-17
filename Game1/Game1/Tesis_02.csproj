@@ -89,8 +89,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Puzle.cs" />
-    <Compile Include="RazonamientoSpriteFactory.cs" />
-    <Compile Include="Raz_mapa1-2_SpriteFactory.cs" />
+    <Compile Include="Factories\RazonamientoSpriteFactory.cs" />
+    <Compile Include="Factories\Raz_mapa1-2_SpriteFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

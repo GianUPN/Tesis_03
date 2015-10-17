@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tesis_02", "Game1\Game1\Tes
 EndProject
 Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Tesis_02Content", "Game1\Game1Content\Tesis_02Content.contentproj", "{5292DE03-8984-4415-A192-0035FECDFDCE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa_Juego", "Capa_Juego", "{E90ED283-6E54-4E4A-8FC6-DCF9C00B8A41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa_Modelo", "Capa_Modelo", "{6CEFDA13-73B6-49DC-8202-A3AE1E8BAF79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capa_Presentacion", "Capa_Presentacion", "{96365294-885A-4CC0-8AC2-5B2716DFDFD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +40,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8BE77298-FCC2-4A8D-8E71-D283B42A6B14} = {E90ED283-6E54-4E4A-8FC6-DCF9C00B8A41}
+		{5292DE03-8984-4415-A192-0035FECDFDCE} = {E90ED283-6E54-4E4A-8FC6-DCF9C00B8A41}
 	EndGlobalSection
 EndGlobal
