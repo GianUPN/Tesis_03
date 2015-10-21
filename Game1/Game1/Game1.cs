@@ -37,6 +37,8 @@ namespace Tesis_02
         /// </summary>
         protected override void Initialize()
         {
+            this.Window.AllowUserResizing = true;
+            //this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
             this.IsMouseVisible = true;
             personaje = new PersonajePrincipal(this);
             Texture2D fondo = Content.Load<Texture2D>("Backgrounds/fondo");
@@ -79,8 +81,9 @@ namespace Tesis_02
 
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            // this.Exit();
+            if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
+            
+             this.Exit();
 
             Keyboard1.Instance.setkeyboardStatePrevio(Keyboard1.Instance.getkeyboardStateActual);
             // Almacena el estado previo en variables distintas
