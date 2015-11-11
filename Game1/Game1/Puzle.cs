@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,9 @@ namespace Tesis_02
         }
         public override void actualizar(long tiempo)
         {
-           
-            
 
+            if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Space))
+            { }
 
 
             base.actualizar(tiempo);

@@ -8,11 +8,11 @@ using Tesis_02.Personajes.MundoRaz;
 
 namespace Tesis_02
 {
-    class RazonamientoSpriteFactory : iSpriteFactory
+    class Raz_mapa1_1_SpriteFactory : iSpriteFactory
     {
         private Game1 game;
 
-        public RazonamientoSpriteFactory(Game1 game)
+        public Raz_mapa1_1_SpriteFactory(Game1 game)
         {
             this.game = game;
 

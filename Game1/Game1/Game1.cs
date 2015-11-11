@@ -41,15 +41,14 @@ namespace Tesis_02
             //this.Window.ClientSizeChanged += new EventHandler<EventArgs>(Window_ClientSizeChanged);
             this.IsMouseVisible = true;
             personaje = new PersonajePrincipal(this);
-            Texture2D fondo = Content.Load<Texture2D>("Backgrounds/fondo");
-            TileMap.Instance(this, "Content/Mapas/mapa_1-1.csv", personaje, 2, 20);
-            TileMap.GetInstance.spriteFactory = new RazonamientoSpriteFactory(this);
+            Texture2D fondo = Content.Load<Texture2D>("Backgrounds/fondoisometrico");
+            TileMap.Instance(this, "Content/Mapas/mapa_menu-elegir01.csv", personaje, 3, 5);
+            TileMap.GetInstance.spriteFactory = new Menu_elegir01_SpriteFatory(this);
             //.spriteFactory = new RazonamientoSpriteFactory(this);
             //escenario.regenerarMapa();
 
             TileMap.GetInstance.HorizontalScrolling = TileMap.Scrolling.Sprite;
             TileMap.GetInstance.VerticalScrolling = TileMap.Scrolling.Sprite;
-
             TileMap.GetInstance.ParallaxBackground = fondo;
 
             TileMap.GetInstance.regenerarMapa();
@@ -84,21 +83,16 @@ namespace Tesis_02
             if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
             
              this.Exit();
-
-            Keyboard1.Instance.setkeyboardStatePrevio(Keyboard1.Instance.getkeyboardStateActual);
-            // Almacena el estado previo en variables distintas
-            Keyboard1.Instance.setkeyboardStateActual(Keyboard.GetState());
-            // Leer el estado actual del teclado y almacenarlo
-            /*
-            if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
+            if (true)
             {
-                escenario = new TileMap(this, "Content/Mapas/mapa_1-1.csv", personaje, 2, 10);
+                Keyboard1.Instance.setkeyboardStatePrevio(Keyboard1.Instance.getkeyboardStateActual);
+                // Almacena el estado previo en variables distintas
+                Keyboard1.Instance.setkeyboardStateActual(Keyboard.GetState());
+                // Leer el estado actual del teclado y almacenarlo
 
-                TileMap.Instance.regenerarMapa();
+                personaje.parar_personaje();
+                personaje.actualizar_teclas();
             }
-            */
-            personaje.parar_personaje();
-            personaje.actualizar_teclas();
             TileMap.GetInstance.actualizar((long)gameTime.ElapsedGameTime.TotalMilliseconds);
 
             base.Update(gameTime);
