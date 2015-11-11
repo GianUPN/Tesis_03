@@ -15,8 +15,11 @@ namespace Tesis_02
     /// <summary>
     /// This is the main type for your game
     /// </summary>
+    
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        //SE SUPONE QUE AHROA SIII!!!
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         //TileMap escenario;
