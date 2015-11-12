@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Tesis_02.Personajes;
+using Tesis02.Personajes.MundoArit;
+using Tesis_02.Core;
 
 namespace Tesis_02
 {
-    class Arit_mapa2_1_SpriteFactory : Core.iSpriteFactory
+    class Arit_mapa2_1_SpriteFactory : iSpriteFactory
     {
         private Game1 game;
 
@@ -21,7 +23,7 @@ namespace Tesis_02
             switch (nombreSprite)
             {
                 case "profesor":
-                    objSprite = new (game);
+                    objSprite = new Aritmetica_Maestro01(game);
                     break;
             }
             return objSprite;
