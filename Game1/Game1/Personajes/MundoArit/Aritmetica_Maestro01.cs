@@ -196,6 +196,15 @@ namespace Tesis02.Personajes.MundoArit
             // base.evento_ColisionHorizontalTile();
         }
 
+        public override void evento_ColisionHorizontalSprite(Sprite objSprite)
+        {
 
+
+
+        }
+        public override void evento_ColisionVerticalSprite(Sprite objSprite)
+        {
+              
+        }
     }
 }
