@@ -9,7 +9,7 @@ using System.Threading;
 using Microsoft.Xna.Framework.Input;
 using Tesis_02.Core;
 using Tesis_02;
-
+//xd
 namespace Tesis02.Personajes.MundoArit
 {
     class Aritmetica_Maestro01 : Sprite{
