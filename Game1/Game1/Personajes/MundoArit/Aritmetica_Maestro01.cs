@@ -12,9 +12,10 @@ using Tesis_02;
 
 namespace Tesis02.Personajes.MundoArit
 {
-    class Aritmetica_Maestro01 : Sprite{
+    class Aritmetica_Maestro01 : Sprite
+    {
         public float velocidad { get; set; }
-        public enum Direccion { Arriba, Abajo, Izquierda, Derecha};
+        public enum Direccion { Arriba, Abajo, Izquierda, Derecha };
         public Direccion direccion { get; set; }
         public enum Estado { Caminando, Parado };
         public Estado estado { get; set; }
@@ -31,63 +32,72 @@ namespace Tesis02.Personajes.MundoArit
         private Animacion animCaminandoArriba;
 
 
-        public Aritmetica_Maestro01(Game1 game) : base (null)
+        public Aritmetica_Maestro01(Game1 game)
+            : base(null)
         {
             this.game = game;
 
             Texture2D parado = game.Content.Load<Texture2D>("ProfeArit/parado"); //Parado
             animParado = new Animacion();
-            animParado.agregarFrame(parado, 200);
+            animParado.agregarFrame(parado, 100);
 
             Texture2D miraDerecha = game.Content.Load<Texture2D>("ProfeArit/derecha"); //Parado a la derecha
             animParadoDerecha = new Animacion();
-            animParadoDerecha.agregarFrame(miraDerecha, 200);
+            animParadoDerecha.agregarFrame(miraDerecha, 100);
 
             Texture2D miraIzquierda = game.Content.Load<Texture2D>("ProfeArit/izquierda"); //Parado a la izquierda
             animParadoIzquierda = new Animacion();
-            animParadoIzquierda.agregarFrame(miraIzquierda, 200);
+            animParadoIzquierda.agregarFrame(miraIzquierda, 100);
 
             Texture2D miraArriba = game.Content.Load<Texture2D>("ProfeArit/arriba"); //Parado hacia arriba
             animParadoArriba = new Animacion();
-            animParadoArriba.agregarFrame(miraArriba, 200);
+            animParadoArriba.agregarFrame(miraArriba, 100);
 
             //Caminando hacia abajo
             Texture2D caminandoAbajo1 = game.Content.Load<Texture2D>("ProfeArit/abajo1");
             Texture2D caminandoAbajo2 = game.Content.Load<Texture2D>("ProfeArit/abajo2");
+            Texture2D caminandoAbajo3 = game.Content.Load<Texture2D>("ProfeArit/parado");
             animCaminandoAbajo = new Animacion();
-            animCaminandoAbajo.agregarFrame(caminandoAbajo1, 200);
-            animCaminandoAbajo.agregarFrame(caminandoAbajo2, 200);
+            animCaminandoAbajo.agregarFrame(caminandoAbajo1, 250);
+            animCaminandoAbajo.agregarFrame(caminandoAbajo2, 250);
+            animCaminandoAbajo.agregarFrame(caminandoAbajo3, 250);
 
             //Caminando hacia la derecha
             Texture2D caminandoDerecha1 = game.Content.Load<Texture2D>("ProfeArit/derecha1");
             Texture2D caminandoDerecha2 = game.Content.Load<Texture2D>("ProfeArit/derecha2");
+            Texture2D caminandoDerecha3 = game.Content.Load<Texture2D>("ProfeArit/derecha");
             animCaminandoDerecha = new Animacion();
-            animCaminandoDerecha.agregarFrame(caminandoDerecha1, 200);
-            animCaminandoDerecha.agregarFrame(caminandoDerecha2, 200);
+            animCaminandoDerecha.agregarFrame(caminandoDerecha1, 250);
+            animCaminandoDerecha.agregarFrame(caminandoDerecha2, 250);
+            animCaminandoDerecha.agregarFrame(caminandoDerecha3, 250);
 
             //Caminando hacia la izquierda
             Texture2D caminandoIzquierda1 = game.Content.Load<Texture2D>("ProfeArit/izquierda1");
             Texture2D caminandoIzquierda2 = game.Content.Load<Texture2D>("ProfeArit/izquierda2");
+            Texture2D caminandoIzquierda3 = game.Content.Load<Texture2D>("ProfeArit/izquierda");
             animCaminandoIzquierda = new Animacion();
-            animCaminandoIzquierda.agregarFrame(caminandoIzquierda1, 200);
-            animCaminandoIzquierda.agregarFrame(caminandoIzquierda2, 200);
+            animCaminandoIzquierda.agregarFrame(caminandoIzquierda1, 250);
+            animCaminandoIzquierda.agregarFrame(caminandoIzquierda2, 250);
+            animCaminandoIzquierda.agregarFrame(caminandoIzquierda3, 250);
 
             //Caminando hacia arriba
             Texture2D caminandoArriba1 = game.Content.Load<Texture2D>("ProfeArit/arriba1");
             Texture2D caminandoArriba2 = game.Content.Load<Texture2D>("ProfeArit/arriba2");
+            Texture2D caminandoArriba3 = game.Content.Load<Texture2D>("ProfeArit/arriba");
             animCaminandoArriba = new Animacion();
-            animCaminandoArriba.agregarFrame(caminandoArriba1, 200);
-            animCaminandoArriba.agregarFrame(caminandoArriba2, 200);
+            animCaminandoArriba.agregarFrame(caminandoArriba1, 250);
+            animCaminandoArriba.agregarFrame(caminandoArriba2, 250);
+            animCaminandoArriba.agregarFrame(caminandoArriba3, 250);
 
             base.animacion = animParado;
             velocidad = 0.15f;
-            this.velocidadX = 0.01f;
+            this.velocidadX = 0.03f;
         }
 
         public override void actualizar(long tiempo)
         {
             //Animacion correcta
-            this.velocidadX = 0;
+            this.velocidadY = 0;
 
             actualizar_movimiento();
             switch (direccion)
@@ -152,7 +162,7 @@ namespace Tesis02.Personajes.MundoArit
             {
                 this.direccion = Direccion.Derecha;
             }
-            if (velocidadY < 0)
+            if (velocidadX < 0)
             {
                 this.direccion = Direccion.Izquierda;
             }
@@ -176,8 +186,14 @@ namespace Tesis02.Personajes.MundoArit
 
         public override void evento_ColisionVerticalTile()
         {
-            this.velocidadX = -this.velocidadX;
+
             // base.evento_ColisionVerticalTile();
+        }
+
+        public override void evento_ColisionHorizontalTile()
+        {
+            this.velocidadX = -this.velocidadX;
+            // base.evento_ColisionHorizontalTile();
         }
 
 
