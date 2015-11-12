@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Tesis_02.Personajes;
+
+namespace Tesis_02
+{
+    class Arit_mapa2_1_SpriteFactory : Core.iSpriteFactory
+    {
+        private Game1 game;
+
+        public Arit_mapa2_1_SpriteFactory(Game1 game)
+        {
+            this.game = game;
+        }
+
+        public Core.Sprite obtenerSprite(String nombreSprite)
+        {
+            Core.Sprite objSprite = null;
+            switch (nombreSprite)
+            {
+                case "profesor":
+                    objSprite = new (game);
+                    break;
+            }
+            return objSprite;
+        }
+    }
+}

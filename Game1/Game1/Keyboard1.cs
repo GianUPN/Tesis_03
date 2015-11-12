@@ -14,7 +14,7 @@ namespace Tesis_02
 
         private static Keyboard1 instance;
 
-
+        
         private Keyboard1() { }
 
         public static Keyboard1 Instance

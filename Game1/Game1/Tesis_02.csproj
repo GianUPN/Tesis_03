@@ -79,6 +79,7 @@
     <Compile Include="Core\ListaInteligente.cs" />
     <Compile Include="Core\Sprite.cs" />
     <Compile Include="Core\TileMap.cs" />
+    <Compile Include="Factories\Arit_mapa2-1_SpriteFactory.cs" />
     <Compile Include="Factories\Menu-elegir01_SpriteFatory.cs" />
     <Compile Include="Keyboard1.cs" />
     <Compile Include="Menu\Menu_Boton_Aritmetica.cs" />

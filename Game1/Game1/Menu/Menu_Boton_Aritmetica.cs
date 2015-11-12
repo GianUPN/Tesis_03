@@ -42,11 +42,11 @@ namespace Tesis_02.Menu
         {
             try
             {
-                Texture2D fondo = game.Content.Load<Texture2D>("Backgrounds/dungeon");
-                TileMap.GetInstance.mapName = "Content/Mapas/mapa_1-2.csv";
+                Texture2D fondo = game.Content.Load<Texture2D>("Backgrounds/classroom1");
+                TileMap.GetInstance.mapName = "Content/Mapas/mapa_2-1.csv";
                 TileMap.GetInstance.posSpriteScrollingTileX = 20;
                 TileMap.GetInstance.posSpriteScrollingTileY = 10;
-                TileMap.GetInstance.spriteFactory = new Raz_mapa1_2_SpriteFactory(game);
+                TileMap.GetInstance.spriteFactory = new Arit_mapa2_1_SpriteFactory(game);
                 TileMap.GetInstance.ParallaxBackground = fondo;
                 TileMap.GetInstance.regenerarMapa();
 

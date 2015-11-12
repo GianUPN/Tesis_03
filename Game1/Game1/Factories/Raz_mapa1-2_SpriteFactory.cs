@@ -9,7 +9,7 @@ namespace Tesis_02
 {
     class Raz_mapa1_2_SpriteFactory:iSpriteFactory
     {
-
+        
          private Game1 game;
 
          public Raz_mapa1_2_SpriteFactory(Game1 game)
