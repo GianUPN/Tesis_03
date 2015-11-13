@@ -9,7 +9,11 @@ using System.Threading;
 using Microsoft.Xna.Framework.Input;
 using Tesis_02.Core;
 using Tesis_02;
-//xd
+/*using System.Diagnostics;
+using System.Linq.Expressions;
+using Microsoft.Xna.Framework.DrawableGameComponent;
+using System.Runtime.InteropServices;
+*/
 namespace Tesis02.Personajes.MundoArit
 {
     class Aritmetica_Maestro01 : Sprite
@@ -21,6 +25,7 @@ namespace Tesis02.Personajes.MundoArit
         public Estado estado { get; set; }
 
         protected Game1 game { get; set; }
+        //protected ContentManaget content;
 
         private Animacion animParado;
         private Animacion animParadoDerecha;
@@ -30,12 +35,14 @@ namespace Tesis02.Personajes.MundoArit
         private Animacion animCaminandoDerecha;
         private Animacion animCaminandoIzquierda;
         private Animacion animCaminandoArriba;
-
+        private int band = 0;
 
         public Aritmetica_Maestro01(Game1 game)
             : base(null)
         {
             this.game = game;
+
+            //Components.Add(new GamerServicesComponent(this));
 
             Texture2D parado = game.Content.Load<Texture2D>("ProfeArit/parado"); //Parado
             animParado = new Animacion();
@@ -178,7 +185,7 @@ namespace Tesis02.Personajes.MundoArit
             }
         }
 
-        public void parar_personaje()
+        public void parar_maestro()
         {
             this.velocidadX = 0;
             this.velocidadY = 0;
@@ -196,10 +203,52 @@ namespace Tesis02.Personajes.MundoArit
             // base.evento_ColisionHorizontalTile();
         }
 
+        /*protected static void GetMBResult(IAsyncResult r)
+        {
+            int? b = Guide.EndShowMessageBox(r);
+        }*/
+
         public override void evento_ColisionHorizontalSprite(Sprite objSprite)
         {
-
-
+            //band = 1;
+            if (objSprite is PersonajePrincipal && Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Space) && band == 0)
+            {
+                try
+                {
+                    band = 1;
+                    PersonajePrincipal personaje = (PersonajePrincipal)objSprite;
+                    // TileMap.GetInstance.sprites.Remove(this);
+                    //Puzle puzle = new Puzle(game, "puzzle_arit_01");
+                    //Pregunta pregunta = new Pregunta("boton");
+                    /*puzle.x = this.x - 400;
+                    puzle.y = this.y ;
+                    */
+                    //pregunta.x = this.x - 200;
+                    //pregunta.y = this.y - 150;
+                    //pregunta.LoadContent(content);
+                    personaje.resolviendo = true;
+                    this.parar_maestro();
+                    personaje.parar_personaje();
+                    //TileMap.GetInstance.sprites.Add(puzle);
+                    //TileMap.GetInstance.sprites.Add(pregunta);
+                }
+                catch (Exception ex){
+                    /*List<string> MBOPTIONS = new List<string>();
+                    MBOPTIONS.Add("OK");
+                    Guide.BeginShowMessageBox("Temp", "Stuff", MBOPTIONS, 0, MessageBoxIcon.None, GetMBResult, null);
+                    */
+                    //MessageBox.Show("ERROR DE PUZZLE");
+                    /*WriteToLog(ex.Message, ex.StackTrace);
+                    throw;*/
+                    //LogError(ex);
+                    /*using (MyErrorHandler errorHandler = new MyErrorHandler())
+                    {
+                        errorHandler.ErrorText = e.Message;
+                        errorHandler.Run();
+                    }*/
+                }
+                
+            }
 
         }
         public override void evento_ColisionVerticalSprite(Sprite objSprite)

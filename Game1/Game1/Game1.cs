@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Tesis_02.Core;
+using System.Diagnostics;
 
 namespace Tesis_02
 {
@@ -24,10 +25,13 @@ namespace Tesis_02
         public PersonajePrincipal personaje { get; set; }
         //public Texture2D fondo { get; set; }
 
+        Pregunta menu;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            //Components.Add(new GamerServicesComponent(this));
         }
 
         /// <summary>
@@ -64,7 +68,10 @@ namespace Tesis_02
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            menu = new Pregunta("PuzzlesArit/question");
+            menu.LoadContent(Content);
+            menu.Centrar(250,380);
+            //}
             // TODO: use this.Content to load your game content here
 
         }
@@ -78,13 +85,24 @@ namespace Tesis_02
             // TODO: Unload any non ContentManager content here
         }
 
-
+        KeyboardState prevKeyState; 
         protected override void Update(GameTime gameTime)
         {
             if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
-            
              this.Exit();
-            if (true)
+
+            menu.Update();
+
+            if (personaje.resolviendo)
+            {
+                KeyboardState ks = Keyboard.GetState();
+                if (ks.IsKeyDown(Keys.Left) || prevKeyState.IsKeyDown(Keys.Right) ||
+                    ks.IsKeyDown(Keys.Up) || ks.IsKeyDown(Keys.Down)) {}
+                //prevKeyState = ks; 
+            }
+
+            else
+            //if (true)
             {
                 Keyboard1.Instance.setkeyboardStatePrevio(Keyboard1.Instance.getkeyboardStateActual);
                 // Almacena el estado previo en variables distintas
@@ -101,9 +119,12 @@ namespace Tesis_02
 
         protected override void Draw(GameTime gameTime)
         {
-
             spriteBatch.Begin();
             TileMap.GetInstance.dibujar(spriteBatch, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
+            if (personaje.resolviendo)
+            {
+                menu.Draw(spriteBatch);
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }

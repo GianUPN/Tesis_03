@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Audio;
 using System.Threading;
 using Tesis_02.Core;
 using Microsoft.Xna.Framework.Input;
+
 namespace Tesis_02
 {
     public class PersonajePrincipal : Sprite
@@ -31,8 +32,8 @@ namespace Tesis_02
         private Animacion animCaminandoArriba;
 
         public int pausa{get;set;}
-        
 
+        public bool resolviendo = false;
 
         public PersonajePrincipal(Game1 game) : base(null)
         {
@@ -151,8 +152,6 @@ namespace Tesis_02
             }
             //actualizar_teclas();
 
-
-
             base.actualizar(tiempo);
             //Gravedad
             //velocidadY += fuerzaGravedad * tiempo;
@@ -181,7 +180,6 @@ namespace Tesis_02
                 this.direccion = PersonajePrincipal.Direccion.Derecha;
                 this.velocidadX = +this.velocidad;
             }
-           
 
 
             //actualizar estados de personaje
@@ -199,6 +197,8 @@ namespace Tesis_02
         {
             this.velocidadX = 0;
             this.velocidadY = 0;
+            this.direccion = PersonajePrincipal.Direccion.Abajo;
+            this.estado = PersonajePrincipal.Estado.Parado;
         }
 
         public override void evento_ColisionVerticalTile()
