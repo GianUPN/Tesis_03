@@ -72,6 +72,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alternativa.cs" />
     <Compile Include="Core\Animacion.cs" />
     <Compile Include="Core\CuadroAnimacion.cs" />
     <Compile Include="Core\DespiertoPantalla.cs" />

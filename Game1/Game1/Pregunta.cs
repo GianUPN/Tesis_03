@@ -12,49 +12,46 @@ namespace Tesis_02
 {
     class Pregunta //: Sprite
     {
-        protected Game1 game { get; set; }
-        private Rectangle r { get; set; }
-        private Texture2D textura { get; set; }
-        private String cadena { get; set; }
+        List<Alternativa> p = new List<Alternativa>();
 
-        /*public Pregunta(Game1 game)
-            : base(null)
+        public Pregunta()
         {
-
-        }*/
-
-        public Pregunta(String cadena)
-        {
-            this.cadena = cadena;
+            p.Add(new Alternativa("PuzzlesArit/question"));
+            p.Add(new Alternativa("PuzzlesArit/OpA"));
+            p.Add(new Alternativa("PuzzlesArit/OpB"));
+            p.Add(new Alternativa("PuzzlesArit/OpC"));
         }
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager cont)
         {
-            textura = content.Load<Texture2D>(cadena);
-            r = new Rectangle(0,0,textura.Width,textura.Height);
+            foreach(Alternativa item in p)
+            {
+                item.LoadContent(cont);
+                item.Centrar(200,280);
+            }
 
-        }
-
-        public void Draw(SpriteBatch spritebatch)
-        {
-            spritebatch.Draw(textura, r, Color.Aqua);
-        }
-
-        public void Centrar(int alto, int ancho)
-        {
-            r = new Rectangle(ancho, alto, this.r.Width, this.r.Height);
-            //r = new Rectangle((ancho/2)-(this.r.Width/2), (alto/2)-(this.r.Height/2), this.r.Width, this.r.Height);
+            p.Find(x => x.Cadena == "PuzzlesArit/OpA").moverElemento(50, 150);
+            p.Find(x => x.Cadena == "PuzzlesArit/OpB").moverElemento(170, 150);
+            p.Find(x => x.Cadena == "PuzzlesArit/OpC").moverElemento(290, 150);
         }
 
         public void Update()
         {
-            if(r.Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) &&
-                Mouse.GetState().LeftButton == ButtonState.Pressed)
+            foreach (Alternativa item in p)
             {
-                //ahora deberia funcionar
-
+                item.Update();
             }
         }
+
+        public void Draw(SpriteBatch sb)
+        {
+            foreach (Alternativa it in p)
+            {
+                it.Draw(sb);
+            }
+        }
+
+        
 
     }
 }

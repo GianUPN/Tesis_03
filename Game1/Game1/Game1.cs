@@ -25,7 +25,7 @@ namespace Tesis_02
         public PersonajePrincipal personaje { get; set; }
         //public Texture2D fondo { get; set; }
 
-        Pregunta menu;
+        Pregunta pregunta = new Pregunta();
 
         public Game1()
         {
@@ -68,12 +68,8 @@ namespace Tesis_02
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            menu = new Pregunta("PuzzlesArit/question");
-            menu.LoadContent(Content);
-            menu.Centrar(250,380);
-            //}
+            pregunta.LoadContent(Content);
             // TODO: use this.Content to load your game content here
-
         }
 
         /// <summary>
@@ -91,7 +87,12 @@ namespace Tesis_02
             if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
              this.Exit();
 
-            menu.Update();
+            //pregunta.Update();
+
+            Keyboard1.Instance.setkeyboardStatePrevio(Keyboard1.Instance.getkeyboardStateActual);
+            // Almacena el estado previo en variables distintas
+            Keyboard1.Instance.setkeyboardStateActual(Keyboard.GetState());
+            // Leer el estado actual del teclado y almacenarlo
 
             if (personaje.resolviendo)
             {
@@ -100,15 +101,9 @@ namespace Tesis_02
                     ks.IsKeyDown(Keys.Up) || ks.IsKeyDown(Keys.Down)) {}
                 //prevKeyState = ks; 
             }
-
             else
             //if (true)
             {
-                Keyboard1.Instance.setkeyboardStatePrevio(Keyboard1.Instance.getkeyboardStateActual);
-                // Almacena el estado previo en variables distintas
-                Keyboard1.Instance.setkeyboardStateActual(Keyboard.GetState());
-                // Leer el estado actual del teclado y almacenarlo
-
                 personaje.parar_personaje();
                 personaje.actualizar_teclas();
             }
@@ -123,7 +118,7 @@ namespace Tesis_02
             TileMap.GetInstance.dibujar(spriteBatch, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             if (personaje.resolviendo)
             {
-                menu.Draw(spriteBatch);
+                pregunta.Draw(spriteBatch);
             }
             spriteBatch.End();
             base.Draw(gameTime);
