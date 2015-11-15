@@ -51,7 +51,7 @@ namespace Tesis_02
             if(r.Contains(new Point(Mouse.GetState().X, Mouse.GetState().Y)) &&
                 Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                //ahora deberia funcionar
+                //ahora deberia funcionars
 
             }
         }

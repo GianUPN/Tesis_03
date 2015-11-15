@@ -213,6 +213,7 @@ namespace Tesis_02.Personajes.MundoRaz
             {
                 band = 1;
                 PersonajePrincipal personaje = (PersonajePrincipal)objSprite;
+                personaje.resolviendo = true;
                 // TileMap.GetInstance.sprites.Remove(this);
                 Puzle puzle = new Puzle(game, "puzzle01");
                 puzle.x = this.x+40;

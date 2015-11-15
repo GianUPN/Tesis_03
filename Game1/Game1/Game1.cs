@@ -26,6 +26,9 @@ namespace Tesis_02
         //public Texture2D fondo { get; set; }
 
         Pregunta menu;
+        Pregunta opA;
+        Pregunta opB;
+        Pregunta opC;
 
         public Game1()
         {
@@ -70,7 +73,10 @@ namespace Tesis_02
             spriteBatch = new SpriteBatch(GraphicsDevice);
             menu = new Pregunta("PuzzlesArit/question");
             menu.LoadContent(Content);
-            menu.Centrar(250,380);
+            menu.Centrar(250,380);/*
+            opA = new Pregunta();
+            opB = new Pregunta();
+            opC = new Pregunta();*/
             //}
             // TODO: use this.Content to load your game content here
 
@@ -87,7 +93,7 @@ namespace Tesis_02
 
         KeyboardState prevKeyState; 
         protected override void Update(GameTime gameTime)
-        {
+        {  
             if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
              this.Exit();
 
