@@ -26,7 +26,7 @@ namespace Tesis_02
             this.Cadena = cadena;
         }
 
-        public void LoadContent(ContentManager content)
+        public void CargarAlternativa(ContentManager content)
         {
             textura = content.Load<Texture2D>(Cadena);
             r = new Rectangle(0,0,textura.Width,textura.Height);

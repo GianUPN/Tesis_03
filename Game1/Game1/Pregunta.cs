@@ -22,11 +22,11 @@ namespace Tesis_02
             p.Add(new Alternativa("PuzzlesArit/OpC"));
         }
 
-        public void LoadContent(ContentManager cont)
+        public void Cargar(ContentManager cont)
         {
             foreach(Alternativa item in p)
             {
-                item.LoadContent(cont);
+                item.CargarAlternativa(cont);
                 item.Centrar(200,280);
             }
 
