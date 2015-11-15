@@ -197,8 +197,8 @@ namespace Tesis_02
         {
             this.velocidadX = 0;
             this.velocidadY = 0;
-            this.direccion = PersonajePrincipal.Direccion.Abajo;
-            this.estado = PersonajePrincipal.Estado.Parado;
+            //this.direccion = PersonajePrincipal.Direccion.Abajo;
+            //this.estado = PersonajePrincipal.Estado.Parado;
         }
 
         public override void evento_ColisionVerticalTile()
