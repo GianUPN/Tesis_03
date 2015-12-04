@@ -1,4 +1,6 @@
+using Game1;
 using System;
+using System.Windows.Forms;
 
 namespace Tesis_02
 {
@@ -10,10 +12,17 @@ namespace Tesis_02
         /// </summary>
         static void Main(string[] args)
         {
+
+            using (Login fr = new Login())
+            {
+                Application.Run(fr);
+            }
+            
             using (Game1 game = new Game1())
             {
                 game.Run();
             }
+            
         }
     }
 #endif

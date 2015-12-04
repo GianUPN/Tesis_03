@@ -66,6 +66,9 @@
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alternativa.cs" />
+    <Compile Include="Conexion.cs" />
     <Compile Include="Core\Animacion.cs" />
     <Compile Include="Core\CuadroAnimacion.cs" />
     <Compile Include="Core\DespiertoPantalla.cs" />
@@ -80,9 +84,25 @@
     <Compile Include="Core\ListaInteligente.cs" />
     <Compile Include="Core\Sprite.cs" />
     <Compile Include="Core\TileMap.cs" />
+    <Compile Include="DAO\DAOUsuario.cs" />
+    <Compile Include="DAO\DAO_Pregunta.cs" />
     <Compile Include="Factories\Arit_mapa2-1_SpriteFactory.cs" />
     <Compile Include="Factories\Menu-elegir01_SpriteFatory.cs" />
+    <Compile Include="Formularios\Frm_Pregunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_Pregunta.Designer.cs">
+      <DependentUpon>Frm_Pregunta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global_Resolviendo.cs" />
+    <Compile Include="Global_Usuario.cs" />
     <Compile Include="Keyboard1.cs" />
+    <Compile Include="Formularios\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu\Menu_Boton_Aritmetica.cs" />
     <Compile Include="Menu\Menu_Boton_Razonamiento.cs" />
     <Compile Include="Mouse1.cs" />
@@ -91,6 +111,7 @@
     <Compile Include="Objetos\Puerta.cs" />
     <Compile Include="Personajes\MundoArit\Aritmetica_Maestro01.cs" />
     <Compile Include="Personajes\MundoRaz\Personaje_Indiana.cs" />
+    <Compile Include="Personajes\MundoRaz\Personaje_Indiana02.cs" />
     <Compile Include="Personajes\PersonajePrincipal.cs" />
     <Compile Include="Pregunta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,7 +134,14 @@
       <Project>{5292DE03-8984-4415-A192-0035FECDFDCE}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Formularios\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_Pregunta.resx">
+      <DependentUpon>Frm_Pregunta.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>

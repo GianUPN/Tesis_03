@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Tesis_02.Core;
 using System.Diagnostics;
+using Game1;
 
 namespace Tesis_02
 {
@@ -21,6 +22,7 @@ namespace Tesis_02
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Song musica1;
         //TileMap escenario;
         public PersonajePrincipal personaje { get; set; }
         //public Texture2D fondo { get; set; }
@@ -69,6 +71,10 @@ namespace Tesis_02
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             pregunta.Cargar(Content);
+            musica1 = Content.Load<Song>("Musica/musica01");
+            MediaPlayer.Play(musica1);
+            MediaPlayer.IsRepeating = true;
+            Global_Resolviendo.Instance.setEstado(0);
             // TODO: use this.Content to load your game content here
         }
 
@@ -81,7 +87,7 @@ namespace Tesis_02
             // TODO: Unload any non ContentManager content here
         }
 
-        KeyboardState prevKeyState; 
+        //KeyboardState prevKeyState; 
         protected override void Update(GameTime gameTime)
         {
             if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
@@ -94,21 +100,18 @@ namespace Tesis_02
             Keyboard1.Instance.setkeyboardStateActual(Keyboard.GetState());
             // Leer el estado actual del teclado y almacenarlo
 
-            if (personaje.resolviendo)
+            if (Global_Resolviendo.Instance.getestado()==1)
             {
-                KeyboardState ks = Keyboard.GetState();
-                if (ks.IsKeyDown(Keys.Left) || prevKeyState.IsKeyDown(Keys.Right) ||
-                    ks.IsKeyDown(Keys.Up) || ks.IsKeyDown(Keys.Down)) {}
-                //prevKeyState = ks; 
+               
             }
             else
-            //if (true)
             {
                 personaje.parar_personaje();
                 personaje.actualizar_teclas();
+                TileMap.GetInstance.actualizar((long)gameTime.ElapsedGameTime.TotalMilliseconds);
             }
-            TileMap.GetInstance.actualizar((long)gameTime.ElapsedGameTime.TotalMilliseconds);
 
+            
             base.Update(gameTime);
         }
 
@@ -116,10 +119,7 @@ namespace Tesis_02
         {
             spriteBatch.Begin();
             TileMap.GetInstance.dibujar(spriteBatch, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-            if (personaje.resolviendo)
-            {
-                pregunta.Draw(spriteBatch);
-            }
+
             spriteBatch.End();
             base.Draw(gameTime);
         }

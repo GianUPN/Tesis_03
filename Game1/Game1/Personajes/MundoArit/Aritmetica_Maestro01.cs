@@ -7,13 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 using System.Threading;
 using Microsoft.Xna.Framework.Input;
-using Tesis_02.Core;
 using Tesis_02;
-/*using System.Diagnostics;
-using System.Linq.Expressions;
-using Microsoft.Xna.Framework.DrawableGameComponent;
-using System.Runtime.InteropServices;
-*/
+using Tesis_02.Core;
+using Game1;
+
+
 namespace Tesis02.Personajes.MundoArit
 {
     class Aritmetica_Maestro01 : Sprite
@@ -24,7 +22,7 @@ namespace Tesis02.Personajes.MundoArit
         public enum Estado { Caminando, Parado };
         public Estado estado { get; set; }
 
-        protected Game1 game { get; set; }
+        protected Game game { get; set; }
         //protected ContentManaget content;
 
         private Animacion animParado;
@@ -37,7 +35,7 @@ namespace Tesis02.Personajes.MundoArit
         private Animacion animCaminandoArriba;
         private int band = 0;
 
-        public Aritmetica_Maestro01(Game1 game)
+        public Aritmetica_Maestro01(Game game)
             : base(null)
         {
             this.game = game;
@@ -211,49 +209,21 @@ namespace Tesis02.Personajes.MundoArit
         public override void evento_ColisionHorizontalSprite(Sprite objSprite)
         {
             //band = 1;
-            if (objSprite is PersonajePrincipal && Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Space) && band == 0)
-            {
-                try
-                {
-                    band = 1;
-                    PersonajePrincipal personaje = (PersonajePrincipal)objSprite;
-                    // TileMap.GetInstance.sprites.Remove(this);
-                    //Puzle puzle = new Puzle(game, "puzzle_arit_01");
-                    //Pregunta pregunta = new Pregunta("boton");
-                    /*puzle.x = this.x - 400;
-                    puzle.y = this.y ;
-                    */
-                    //pregunta.x = this.x - 200;
-                    //pregunta.y = this.y - 150;
-                    //pregunta.LoadContent(content);
-                    personaje.resolviendo = true;
-                    this.parar_maestro();
-                    personaje.parar_personaje();
-                    //TileMap.GetInstance.sprites.Add(puzle);
-                    //TileMap.GetInstance.sprites.Add(pregunta);
-                }
-                catch (Exception ex){
-                    /*List<string> MBOPTIONS = new List<string>();
-                    MBOPTIONS.Add("OK");
-                    Guide.BeginShowMessageBox("Temp", "Stuff", MBOPTIONS, 0, MessageBoxIcon.None, GetMBResult, null);
-                    */
-                    //MessageBox.Show("ERROR DE PUZZLE");
-                    /*WriteToLog(ex.Message, ex.StackTrace);
-                    throw;*/
-                    //LogError(ex);
-                    /*using (MyErrorHandler errorHandler = new MyErrorHandler())
-                    {
-                        errorHandler.ErrorText = e.Message;
-                        errorHandler.Run();
-                    }*/
-                }
-                
-            }
+           
 
         }
         public override void evento_ColisionVerticalSprite(Sprite objSprite)
         {
-              
+            if (objSprite is PersonajePrincipal && Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Space) && band == 0)
+            {
+
+                Frm_Pregunta fr = new Frm_Pregunta("puzzle_arit_01", 3);
+                {
+                    fr.Show();
+
+                }
+
+            }
         }
     }
 }
