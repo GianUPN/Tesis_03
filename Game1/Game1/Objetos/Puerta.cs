@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Game1;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,7 @@ namespace Tesis_02.Objetos
         {
             if (objSprite is PersonajePrincipal)
             {   
+                /*
                 Texture2D fondo = game.Content.Load<Texture2D>("Backgrounds/dungeon");
                 TileMap.GetInstance.mapName = "Content/Mapas/mapa_1-2.csv";
                 TileMap.GetInstance.posSpriteScrollingTileX = 10;
@@ -43,6 +45,8 @@ namespace Tesis_02.Objetos
                 TileMap.GetInstance.spriteFactory = new Raz_mapa1_2_SpriteFactory(game);
                 TileMap.GetInstance.ParallaxBackground = fondo;
                 TileMap.GetInstance.regenerarMapa();
+                 */
+                Global_Resolviendo.Instance.setEstado(3);
             }
             
         }

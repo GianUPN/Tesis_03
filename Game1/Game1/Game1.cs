@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+
 using Tesis_02.Core;
 using System.Diagnostics;
 using Game1;
@@ -28,7 +29,9 @@ namespace Tesis_02
         //public Texture2D fondo { get; set; }
 
         Pregunta pregunta = new Pregunta();
-
+        Video video;
+        VideoPlayer player;
+        Texture2D videoTexture;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -75,6 +78,10 @@ namespace Tesis_02
             MediaPlayer.Play(musica1);
             MediaPlayer.IsRepeating = true;
             Global_Resolviendo.Instance.setEstado(0);
+
+            video = Content.Load<Video>("Clases/prueba01");
+            player = new VideoPlayer();
+            player.IsLooped = true;
             // TODO: use this.Content to load your game content here
         }
 
@@ -99,10 +106,12 @@ namespace Tesis_02
             // Almacena el estado previo en variables distintas
             Keyboard1.Instance.setkeyboardStateActual(Keyboard.GetState());
             // Leer el estado actual del teclado y almacenarlo
-
+            player.Play(video);
             if (Global_Resolviendo.Instance.getestado()==1)
             {
                
+                
+                
             }
             else
             {
@@ -117,9 +126,20 @@ namespace Tesis_02
 
         protected override void Draw(GameTime gameTime)
         {
+            // Only call GetTexture if a video is playing or paused
+            if (player.State != MediaState.Stopped)
+                videoTexture = player.GetTexture();
             spriteBatch.Begin();
             TileMap.GetInstance.dibujar(spriteBatch, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-
+            // video to fill the screen
+            Rectangle screen = new Rectangle(GraphicsDevice.Viewport.X,
+                GraphicsDevice.Viewport.Y,
+                GraphicsDevice.Viewport.Width,
+                GraphicsDevice.Viewport.Height);
+            if(Global_Resolviendo.Instance.getestado()==3)
+            {
+                spriteBatch.Draw(videoTexture, screen, Color.White);
+            }
             spriteBatch.End();
             base.Draw(gameTime);
         }

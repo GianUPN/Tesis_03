@@ -8,7 +8,7 @@ using Tesis_02.Core;
 
 namespace Tesis_02.Personajes.MundoRaz
 {
-    public class Personaje_Indiana02:Sprite
+    public class Personaje_Indiana03:Sprite
     {
     //private float fuerzaGravedad = 0.002f;
 
@@ -30,7 +30,7 @@ namespace Tesis_02.Personajes.MundoRaz
         private Animacion animCaminandoArriba;
 
 
-        public Personaje_Indiana02(Game1 game)
+        public Personaje_Indiana03(Game1 game)
             : base(null)
         {
             this.game = game;
@@ -170,11 +170,11 @@ namespace Tesis_02.Personajes.MundoRaz
             //actualizar estados de personaje
             if (this.velocidadX != 0 || this.velocidadY != 0)
             {
-                this.estado = Personaje_Indiana02.Estado.Caminando;
+                this.estado = Personaje_Indiana03.Estado.Caminando;
             }
             else
             {
-                this.estado = Personaje_Indiana02.Estado.Parado;
+                this.estado = Personaje_Indiana03.Estado.Parado;
             }
         }
 
@@ -209,24 +209,15 @@ namespace Tesis_02.Personajes.MundoRaz
             {
                 //band = 1;
                 PersonajePrincipal personaje = (PersonajePrincipal)objSprite;
-                //personaje.resolviendo = true;
-                // TileMap.GetInstance.sprites.Remove(this);
-                /*
-                Puzle puzle = new Puzle(game, "puzzle01");
-                puzle.x = this.x+40;
-                puzle.y = this.y-50;
-                TileMap.GetInstance.sprites.Add(puzle);
-                */
-                Frm_Pregunta fr = new Frm_Pregunta("puzzle02",2);
+                
+                Frm_Pregunta fr = new Frm_Pregunta("puzzle03",4);
                 {
                     fr.Show();
 
                 }
 
-            } 
-            //Global_Resolviendo.Instance.setEstado(1);
+            }
         }
 
     }
 }
- 

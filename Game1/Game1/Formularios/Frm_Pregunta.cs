@@ -34,6 +34,8 @@ namespace Game1
                    MessageBoxButtons.OK,
                    MessageBoxIcon.Asterisk,
                    MessageBoxDefaultButton.Button1);
+                   Global_Resolviendo.Instance.setEstado(0);
+                   this.Dispose();
                 }
                 else
                 {

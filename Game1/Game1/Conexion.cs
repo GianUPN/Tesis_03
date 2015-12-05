@@ -13,7 +13,7 @@ namespace Game1
             SqlConnection cn = new SqlConnection();
             cn.ConnectionString =
                 "Data Source=.;Initial Catalog=NumberLand;Integrated Security=True";
-            //"Data Source=10.22.0.61,1433;Initial Catalog=BD_Incidentes;Integrated Security=False;User ID=sa;Password=Odebrecht2015;Connect Timeout=15;Encrypt=False;Packet Size=4096";
+           // "Data Source=10.144.161.137,1433;Initial Catalog=NumberLand;Integrated Security=False;User ID=xd;Password=G!4ncarlo;Connect Timeout=15;Encrypt=False;Packet Size=4096";
 
             return cn;
         }

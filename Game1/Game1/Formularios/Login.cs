@@ -30,7 +30,7 @@ namespace Game1
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex + "", "Error",
+               MessageBox.Show(ex + "", "Error",
                MessageBoxButtons.OK,
                MessageBoxIcon.Error,
                MessageBoxDefaultButton.Button1);

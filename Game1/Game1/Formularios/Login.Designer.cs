@@ -51,7 +51,7 @@
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.BlueViolet;
+            this.label4.BackColor = System.Drawing.Color.SlateBlue;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(1, 0);
