@@ -32,12 +32,17 @@ namespace Tesis_02
 
                 case "indiana3":
                     objSprite = new Personaje_Indiana03(game);
-                    break;    
-
+                    break;
+                case "indiana4":
+                    objSprite = new Personaje_Indiana04(game);
+                    break;   
                 case "puerta":
                     objSprite = new Puerta(game);
                     break;
 
+                case "puerta2":
+                    objSprite = new Puerta02_Raz_1_1(game);
+                    break;
                 case "portal01":
                     objSprite = new Portal01(game);
                     break;

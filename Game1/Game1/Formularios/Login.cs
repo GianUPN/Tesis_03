@@ -15,6 +15,7 @@ namespace Game1
         public Login()
         {
             InitializeComponent();
+            txt_Usuario.Select();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,6 +26,13 @@ namespace Game1
                 {
                     MessageBox.Show("Bienvenido " + Global_Usuario.Instance.getUsuario());
                     this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o Passowrd incorrecto", "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation,
+                    MessageBoxDefaultButton.Button1);
                 }
             }
             catch (Exception ex)
