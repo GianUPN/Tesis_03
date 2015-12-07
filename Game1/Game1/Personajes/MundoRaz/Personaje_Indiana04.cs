@@ -1,20 +1,14 @@
-﻿using System;
+﻿using Game1;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Audio;
-using System.Threading;
-using Tesis_02;
 using Tesis_02.Core;
-using Microsoft.Xna.Framework.Input;
-using Game1;
-using System.Windows.Forms;
 
 namespace Tesis_02.Personajes.MundoRaz
 {
-    class Personaje_Indiana:Sprite
+    class Personaje_Indiana04:Sprite
     {
     //private float fuerzaGravedad = 0.002f;
 
@@ -36,7 +30,7 @@ namespace Tesis_02.Personajes.MundoRaz
         private Animacion animCaminandoArriba;
 
 
-        public Personaje_Indiana(Game1 game)
+        public Personaje_Indiana04(Game1 game)
             : base(null)
         {
             this.game = game;
@@ -176,11 +170,11 @@ namespace Tesis_02.Personajes.MundoRaz
             //actualizar estados de personaje
             if (this.velocidadX != 0 || this.velocidadY != 0)
             {
-                this.estado = Personaje_Indiana.Estado.Caminando;
+                this.estado = Personaje_Indiana04.Estado.Caminando;
             }
             else
             {
-                this.estado = Personaje_Indiana.Estado.Parado;
+                this.estado = Personaje_Indiana04.Estado.Parado;
             }
         }
 
@@ -216,7 +210,7 @@ namespace Tesis_02.Personajes.MundoRaz
                 //band = 1;
                 PersonajePrincipal personaje = (PersonajePrincipal)objSprite;
                 
-                Frm_Pregunta fr = new Frm_Pregunta("puzzle01",1);
+                Frm_Pregunta fr = new Frm_Pregunta("puzzle04",5);
                 {
                     fr.Show();
 

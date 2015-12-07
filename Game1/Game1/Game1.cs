@@ -117,10 +117,14 @@ namespace Tesis_02
                 personaje.actualizar_teclas();
                 TileMap.GetInstance.actualizar((long)gameTime.ElapsedGameTime.TotalMilliseconds);
             }
-            
+
             if (Global_Resolviendo.Instance.getestado() == 3)
             {
                 player.Play(video);
+            }
+            else
+            {
+                player.Stop();
             }
             
             base.Update(gameTime);

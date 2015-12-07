@@ -132,6 +132,7 @@
     <Compile Include="Personajes\MundoRaz\Personaje_Indiana.cs" />
     <Compile Include="Personajes\MundoRaz\Personaje_Indiana02.cs" />
     <Compile Include="Personajes\MundoRaz\Personaje_Indiana03.cs" />
+    <Compile Include="Personajes\MundoRaz\Personaje_Indiana04.cs" />
     <Compile Include="Personajes\PersonajePrincipal.cs" />
     <Compile Include="Pregunta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
