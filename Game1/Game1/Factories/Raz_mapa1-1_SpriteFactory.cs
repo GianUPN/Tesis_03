@@ -40,6 +40,9 @@ namespace Tesis_02
                     objSprite = new Puerta(game);
                     break;
 
+                case "puerta2":
+                    objSprite = new Puerta02_Raz_1_1(game);
+                    break;
                 case "portal01":
                     objSprite = new Portal01(game);
                     break;
