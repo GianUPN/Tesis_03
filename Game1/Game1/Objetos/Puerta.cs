@@ -27,13 +27,8 @@ namespace Tesis_02.Objetos
 
         }
 
-        public override void evento_ColisionHorizontalTile()
-        {
-            
-            //base.evento_ColisionHorizontalTile();
-        }
 
-        public override void evento_ColisionHorizontalSprite(Sprite objSprite)
+        public override void evento_ColisionVerticalSprite(Sprite objSprite)
         {
             if (objSprite is PersonajePrincipal)
             {   

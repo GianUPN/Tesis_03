@@ -97,8 +97,8 @@ namespace Tesis_02
         //KeyboardState prevKeyState; 
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
-             this.Exit();
+            //if (Keyboard1.Instance.getkeyboardStateActual.IsKeyDown(Keys.Escape))
+            // this.Exit();
 
             //pregunta.Update();
 
@@ -106,12 +106,10 @@ namespace Tesis_02
             // Almacena el estado previo en variables distintas
             Keyboard1.Instance.setkeyboardStateActual(Keyboard.GetState());
             // Leer el estado actual del teclado y almacenarlo
-            player.Play(video);
+           
             if (Global_Resolviendo.Instance.getestado()==1)
             {
-               
-                
-                
+
             }
             else
             {
@@ -119,7 +117,11 @@ namespace Tesis_02
                 personaje.actualizar_teclas();
                 TileMap.GetInstance.actualizar((long)gameTime.ElapsedGameTime.TotalMilliseconds);
             }
-
+            
+            if (Global_Resolviendo.Instance.getestado() == 3)
+            {
+                player.Play(video);
+            }
             
             base.Update(gameTime);
         }
@@ -134,8 +136,8 @@ namespace Tesis_02
             // video to fill the screen
             Rectangle screen = new Rectangle(GraphicsDevice.Viewport.X,
                 GraphicsDevice.Viewport.Y,
-                GraphicsDevice.Viewport.Width,
-                GraphicsDevice.Viewport.Height);
+                200,
+                170);
             if(Global_Resolviendo.Instance.getestado()==3)
             {
                 spriteBatch.Draw(videoTexture, screen, Color.White);

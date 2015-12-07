@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,59 +9,30 @@ using Tesis_02.Core;
 
 namespace Tesis_02.Clases
 {
-    class Video01:Sprite
+    public class Video01:Game1
     {
     //private float fuerzaGravedad = 0.002f;
 
-
+        Video video;
+        VideoPlayer player;
+        Texture2D videoTexture;
 
         protected Game1 game { get; set; }
       
 
-        public Video01(Game1 game)
-            : base(null)
+        public Video01(Game1 game,String videoname)   
         {
             this.game = game;
-
-
-            Texture2D parado = game.Content.Load<Texture2D>("Player/parado"); //Parado
-           // base.animacion = animParado;
+           video = game.Content.Load<Video>(videoname);
+           player.IsLooped = true;
+            // Clases/prueba01
            
         }
 
-        public override void actualizar(long tiempo)
+        public void Draw(SpriteBatch spritebatch, Rectangle screen)
         {
-            //Animacion correcta
-           
-
-            base.actualizar(tiempo);
-            //Gravedad
-            //velocidadY += fuerzaGravedad * tiempo;
+            spritebatch.Draw(videoTexture, screen, Color.White);
         }
-
-      
-        public override void evento_ColisionVerticalTile()
-        {
-            
-        }
-
-
-        public override void evento_ColisionHorizontalTile()
-        {
-           
-           // base.evento_ColisionHorizontalTile();
-        }
-
-        public override void evento_ColisionHorizontalSprite(Sprite objSprite)
-        {
-
-         
-
-        }
-        public override void evento_ColisionVerticalSprite(Sprite objSprite)
-        {
-           
-        }
-
+        
     }
 }

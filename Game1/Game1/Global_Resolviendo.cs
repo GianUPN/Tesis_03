@@ -10,7 +10,8 @@ namespace Game1
           private int estado;
       //1 = resolviendo
       //0 = jugando
-
+      //2 = no definido
+      //3 = viendo clase
         private static Global_Resolviendo instance;
 
         private Global_Resolviendo() { }
