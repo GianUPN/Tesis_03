@@ -31,6 +31,7 @@ namespace Tesis_02.Objetos
         public override void evento_ColisionVerticalSprite(Sprite objSprite)
         {
             if (objSprite is PersonajePrincipal)
+
             {   
                 /*
                 Texture2D fondo = game.Content.Load<Texture2D>("Backgrounds/dungeon");
