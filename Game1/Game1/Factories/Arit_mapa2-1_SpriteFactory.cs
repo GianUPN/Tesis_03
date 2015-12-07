@@ -25,6 +25,12 @@ namespace Tesis_02
                 case "profesor":
                     objSprite = new Aritmetica_Maestro01(game);
                     break;
+                case "escolar01":
+                    objSprite = new Aritmetica_Escolar01(game);
+                    break;
+                case "escolar02":
+                    objSprite = new Aritmetica_Escolar02(game);
+                    break;
             }
             return objSprite;
         }
