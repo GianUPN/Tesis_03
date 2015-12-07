@@ -125,10 +125,11 @@
     <Compile Include="Menu\Menu_Boton_Aritmetica.cs" />
     <Compile Include="Menu\Menu_Boton_Razonamiento.cs" />
     <Compile Include="Mouse1.cs" />
-    <Compile Include="Objetos\Pared.cs" />
-    <Compile Include="Objetos\Portal01.cs" />
-    <Compile Include="Objetos\Puerta.cs" />
-    <Compile Include="Objetos\Puerta02_Raz_1_1.cs" />
+    <Compile Include="Objetos\Mundo_Raz\Pared.cs" />
+    <Compile Include="Objetos\Mundo_Raz\Portal01.cs" />
+    <Compile Include="Objetos\Mundo_Raz\Puerta.cs" />
+    <Compile Include="Objetos\Mundo_Raz\Puerta01_Raz_1_2.cs" />
+    <Compile Include="Objetos\Mundo_Raz\Puerta02_Raz_1_1.cs" />
     <Compile Include="Personajes\MundoArit\Aritmetica_Maestro01.cs" />
     <Compile Include="Personajes\MundoRaz\Personaje_Indiana.cs" />
     <Compile Include="Personajes\MundoRaz\Personaje_Indiana02.cs" />
@@ -188,6 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Tesis_02_ClaveTemporal.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Objetos\Mundo_Arit\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

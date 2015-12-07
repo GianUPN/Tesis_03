@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Tesis_02.Core;
 using Tesis_02.Objetos;
+using Tesis_02.Objetos.Mundo_Raz;
 
 namespace Tesis_02
 {
@@ -23,8 +24,8 @@ namespace Tesis_02
             switch (nombreSprite)
             {
                 
-                case "puerta":
-                    objSprite = new Puerta(game);
+                case "puerta01":
+                    objSprite = new Puerta01_Raz_1_2(game);
                     break;
 
                 case "portal01":
